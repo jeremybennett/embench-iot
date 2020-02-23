@@ -1,3 +1,7 @@
+	This ChangLog is now preserved only for historic reasons. All
+	ChangeLog data is held in the git log, following the same GNU
+	ChangeLog conventions.
+
 2019-10-14  Paolo Savini
 
 	Remove initialization of new empty dictionary.
