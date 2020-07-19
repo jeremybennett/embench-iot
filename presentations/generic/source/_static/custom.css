@@ -1,0 +1,67 @@
+/* CSS file for Embench presentations
+
+   Copyright (C) 2020 Embecosm Limited <www.embecosm.com>
+   Contributor: Jeremy Bennett <jeremy.bennett@embecosm.com>
+   SPDX-License-Identifier: CC-BY-SA-4.0 */
+
+article {
+    background-image: url("embench-background.svg");
+    background-size: 900px;
+    background-repeat: no-repeat;
+    background-position: right bottom;
+}
+
+article h1 {
+    color : blue;
+}
+
+article h2 {
+    color : blue;
+}
+
+.slide-footer {
+    font-size : 50%;
+    width: 100%;
+    padding-left: 300px;
+}
+
+table.small-table {
+    margin-top: 0px !important;
+    font-size : 50%;
+}
+
+table.baseline-table {
+    margin-top: 0px !important;
+    font-size : 30%;
+    padding-top : 0px !important;
+    padding-bottom : 0px !important;
+}
+
+.small-table tr, .baseline-table tr {
+    border-style : solid;
+    border-width : 1px;
+    padding-top : 0px !important;
+    padding-bottom : 0px !important;
+}
+
+.small-table th, .small-table td , .baseline-table th, .baseline-table td {
+    border-style : solid !important;
+    border-width : 1px !important;
+    padding-top : 0px !important;
+    padding-bottom : 0px !important;
+}
+
+th span.right {
+    text-align : right !important;
+}
+
+.small-table th {
+    text-align : center !important;
+}
+
+.slides > .slide {
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  transition: none;
+}
