@@ -93,6 +93,13 @@ def build_parser():
         help='Specify to output in a format suitable for use as a baseline'
     )
     parser.add_argument(
+        '--minimal-output',
+        dest='output_format',
+        action='store_const',
+        const=output_format.MINIMAL,
+        help='Specify to output just the geometric mean'
+    )
+    parser.add_argument(
         '--json-comma',
         action='store_true',
         help='Specify to append a comma to the JSON output',
@@ -376,7 +383,8 @@ def main():
         if gp['output_format'] != output_format.BASELINE:
             opt_comma = ',' if args.json_comma else ''
             embench_stats(benchmarks, raw_data, rel_data, 'size', opt_comma)
-            log.info('All benchmarks sized successfully')
+            if gp['output_format'] != output_format.MINIMAL:
+                log.info('All benchmarks sized successfully')
     else:
         log.info('ERROR: Failed to compute size benchmarks')
         sys.exit(1)

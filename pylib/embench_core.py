@@ -52,6 +52,7 @@ class output_format(Enum):
     JSON = 1
     TEXT = 2
     BASELINE = 3
+    MINIMAL = 4
 
 
 # Make sure we have new enough python
@@ -243,6 +244,8 @@ def output_stats(geomean, geosd, georange, count, bm_type, opt_comma):
             elif gp['output_format'] == output_format.TEXT:
                 geomean_op = '{gm:8,}'.format(gm=round(geomean))
                 geosd_op = '     {gs:6.2f}'.format(gs=geosd)
+            elif gp['output_format'] == output_format.MINIMAL:
+                geomean_op = '{gm:11,}'.format(gm=round(geomean, ndigits=5))
 
             georange_op = '{gr:8,}'.format(gr=georange)
         else:
@@ -252,6 +255,8 @@ def output_stats(geomean, geosd, georange, count, bm_type, opt_comma):
             elif gp['output_format'] == output_format.TEXT:
                 geomean_op = '  {gm:6.2f}'.format(gm=geomean)
                 geosd_op = '  {gs:6.2f}'.format(gs=geosd)
+            elif gp['output_format'] == output_format.MINIMAL:
+                geomean_op = '{gm}'.format(gm=round(geomean, ndigits=5))
 
             georange_op = '  {gr:6.2f}'.format(gr=georange)
     else:
@@ -269,6 +274,8 @@ def output_stats(geomean, geosd, georange, count, bm_type, opt_comma):
         log.info('Geometric mean   {gmo:8}'.format(gmo=geomean_op))
         log.info('Geometric SD     {gso:8}'.format(gso=geosd_op))
         log.info('Geometric range  {gro:8}'.format(gro=georange_op))
+    elif gp['output_format'] == output_format.MINIMAL:
+        log.info('{gmo}'.format(gmo=geomean_op))
 
 
 def embench_stats(benchmarks, raw_data, rel_data, bm_type, opt_comma):
